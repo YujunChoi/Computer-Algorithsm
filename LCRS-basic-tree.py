@@ -6,15 +6,17 @@ class Node:
     
     def __str__(self):
         return str(self.data)
-
+# __init__을 불러 데이터, 왼쪽 자식, 오른쪽 형제를 초기화하고 __str__을 사용해서 반환된 문자열 표현
 class Tree:
     def __init__(self):
         self.root = None
 
     def preorderTraversal(self, node):
-        print(node, end='')
-        if not node.left == None : self.preorderTraversal(node.left)
-        if not node.right == None : self.preorderTraversal(node.right)
+        print(node, end='') 
+        if not node.left == None : 
+            self.preorderTraversal(node.left) #left_node가 비어있지 않으면 left_node 호출 
+        if not node.right == None : 
+            self.preorderTraversal(node.right) #right_node가 비어있지 않으면 자기호출
 
     def inorderTraversal(self, node):
         if not node.left == None : self.inorderTraversal(node.left)
@@ -34,13 +36,13 @@ class Tree:
 
 if __name__=="__main__":
     node =[]
-    node.append(Node('-'))
-    node.append(Node('*'))
-    node.append(Node('/'))
+    node.append(Node('-')) 
+    node.append(Node('*')) 
+    node.append(Node('/')) 
     node.append(Node('A'))
     node.append(Node('B'))
     node.append(Node('C'))
-    node.append(Node('D'))
+    node.append(Node('D')) 
 
     m_tree =Tree()
     for i in range(int(len(node)/2)):
