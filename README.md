@@ -1,2 +1,2 @@
 # Computer-Algorithm
-all algorithsm
+all algorithm
