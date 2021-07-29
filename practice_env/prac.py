@@ -26,10 +26,10 @@ class SList:
         if idx == 0:
             return self.head
         else:
-            target = self.head
+            tail = self.head
             for cnt in range(idx):
-                target = target.next
-            return target
+                tail = tail.next
+            return tail
         
     def appendleft(self, value):
         if self.is_empty():
@@ -43,11 +43,11 @@ class SList:
             self.head = Node(value)
             self.size += 1
         else:
-            target = self.head
-            while target.next != None:
-                target = target.next
+            tail = self.head
+            while tail.next != None:
+                tail = tail.next
             newtail = Node(value)
-            target.next = newtail
+            tail.next = newtail
             self.size += 1
         
     def insert(self, value, idx):
@@ -58,12 +58,12 @@ class SList:
             self.head = Node(value, self.head)
             self.size += 1
         else:
-            target = self.selectNode(idx-1)
-            if target == None:
+            tail = self.selectNode(idx-1)
+            if tail == None:
                 return
             newNode = Node(value)
-            tmp = target.next
-            target.next = newNode
+            tmp = tail.next
+            tail.next = newNode
             newNode.next = tmp
             self.size += 1
         
@@ -75,14 +75,14 @@ class SList:
             print('Overflow: Index Error')
             return
         elif idx == 0:
-            target = self.head
-            self.head = target.next
-            del(target)
+            tail = self.head
+            self.head = tail.next
+            del(tail)
             self.size -= 1
         else:
-            target = self.selectNode(idx-1)
-            deltarget = target.next
-            target.next = target.next.next
+            tail = self.selectNode(idx-1)
+            deltarget = tail.next
+            tail.next = tail.next.next
             del(deltarget)
             self.size -= 1
             
