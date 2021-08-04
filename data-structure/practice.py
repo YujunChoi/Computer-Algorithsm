@@ -5,9 +5,11 @@ def parcheck(parseq):
         if symbol == '(':
             S.push(symbol)
         else: #symbol ==')':
-            if S !=None:
+            if S.is_empty():
+                return False
+            else:
                 S.pop()
-        if S.__len__()==0:
+        if S.is_empty():
             return True
         else:
             return False

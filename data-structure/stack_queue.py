@@ -16,5 +16,7 @@ class Stack:
     def __len__(self):
         return len(self.items)
     def is_empty(self):
-        return len(self) == 0
-        
+        if len(self.items) !=0:
+            return False
+        else:
+            return True
