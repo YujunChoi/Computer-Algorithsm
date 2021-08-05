@@ -13,7 +13,7 @@ class Stack:
             return self.items[-1]
         except IndexError:
             print("Stack is empty")
-    def __len__(self):
+    def size(self):
         return len(self.items)
     def is_empty(self):
         if len(self.items) !=0:
