@@ -34,7 +34,32 @@ def postfix_op(x):
         outstack.append(s.pop())
     return outstack
 
-print(postfix_op('(A*B+C)/D'))
+def calc(x):
+    s2= Stack()
+    for token in x:
+        if token not in '+-*/':
+            s2.push(token)
+        elif token =='+':
+            a=int(s2.pop())
+            b=int(s2.pop())
+            s2.push(b+a)
+        elif token =='-':
+            a=int(s2.pop())
+            b=int(s2.pop())
+            s2.push(b-a)
+        elif token =='*':
+            a=int(s2.pop())
+            b=int(s2.pop())
+            s2.push(b*a) 
+        elif token =='/':
+            a=int(s2.pop())
+            b=int(s2.pop())
+            s2.push(int(b/a))
+    return int(s2.pop())
+
+print(calc('632-4*+'))           
+
+    
 
 
 
